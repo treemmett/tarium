@@ -1,0 +1,22 @@
+{
+  "name": "tarium",
+  "version": "1.0.0",
+  "description": "",
+  "main": "api/index.js",
+  "scripts": {
+    "dev": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/treemmett/tarium.git"
+  },
+  "author": "Tregan Emmett",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/treemmett/tarium/issues"
+  },
+  "homepage": "https://github.com/treemmett/tarium#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
