@@ -1,7 +1,7 @@
-const pgp = require('pg-promise');
+const pgp = require('pg-promise')();
 
 const config = {
-  host: 'localhost',
+  host: '127.0.0.1',
   port: 5432,
   database: 'tarium',
   user: 'postgres',
