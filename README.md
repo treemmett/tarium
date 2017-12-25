@@ -2,6 +2,10 @@
 
 ## API Documentation
 
+* [Get Item](#get-item)
+* [Get All Items](#get-all-items)
+* [Add New Items](#add-new-items)
+
 ### Get Item
 
   Returns JSON of specific item in inventory.
