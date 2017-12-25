@@ -16,6 +16,26 @@ inventory.get('/', (req, res, next) => {
   });
 });
 
+inventory.get('/:asset', (req, res, next) => {
+  //Database query
+  db.result('SELECT asset, model, serial, os, status, location FROM inventory WHERE asset = $1', req.params.asset)
+
+  .then(result => {
+    //Check if asset tag was found
+    if(!result.rowCount){
+      res.status(404).json({error: 'Asset tag not found'});
+      return next();
+    }
+
+    res.json(result.rows[0]);
+  })
+
+  .catch(err => {
+    res.status(500).json({error: 'Server Error', err: err});
+    return next();
+  });
+});
+
 inventory.post('/', (req, res, next) => {
   //Check if all required data is present
   if(!(req.body.asset && req.body.model && req.body.serial)){

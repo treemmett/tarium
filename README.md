@@ -2,6 +2,39 @@
 
 ## API Documentation
 
+### Get Item
+
+  Returns JSON of specific item in inventory.
+
+* **URL**
+
+  /api/inventory/:asset
+
+* **Method**
+
+  `GET`
+
+* **URL Params**
+
+  * `asset` Asset tag
+
+* **Success Response**
+
+  * **Code:** 200<br/>
+  **Body:** `{
+    "asset": 50848948,
+    "model": "HP 85555 G3",
+    "serial": "02544981SE6",
+    "os": "Windows 10 Professional",
+    "status": "working",
+    "location": "storage"
+}`
+
+* **Error Response**
+
+  * **Code:** 404<br/>
+  **Body:** `{"error": "Asset tag not found"}`
+
 ### Get All Items
 
   Returns JSON of all items in the inventory.
@@ -18,13 +51,13 @@
 
   * **Code:** 200<br/>
     **Body:** `[{
-      id: 1,
-      asset: 05261,
-      model: "HP 850 G3",
-      serial: "00000000",
-      status: "working",
-      location: "storage"
-    }]`
+    "asset": 50848948,
+    "model": "HP 85555 G3",
+    "serial": "02544981SE6",
+    "os": "Windows 10 Professional",
+    "status": "working",
+    "location": "storage"
+}]`
 
 ### Add New Items
 
@@ -55,14 +88,14 @@
 * **Success Response**
 
   * **Code:** 200<br/>
-  **Body:** `{success: true}`
+  **Body:** `{"success": true}`
 
 * **Error Response**
 
   * **Code:** 422<br/>
-  **Body:** `{error: 'Missing required data'}`
+  **Body:** `{"error": "Missing required data"}`
 
   OR
 
   * **Code:** 500<br/>
-  **Body:** `{error: 'Database query failed'}`
+  **Body:** `{"error": "Database query failed"}`
