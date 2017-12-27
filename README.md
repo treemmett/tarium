@@ -5,6 +5,7 @@
 * [Get Item](#get-item)
 * [Get All Items](#get-all-items)
 * [Add New Items](#add-new-items)
+* [Update Item](#update-item)
 
 ### Get Item
 
@@ -103,3 +104,53 @@
 
   * **Code:** 500<br/>
   **Body:** `{"error": "Database query failed"}`
+
+### Update Item
+
+  Update values of existing item
+
+* **URL**
+
+  /api/inventory/:asset
+
+* **Method**
+
+  `PUT`
+
+* **URL Params**
+
+  * `asset` Asset tag
+
+* **Data Params**
+
+  **At Least One Required:**
+
+  * `location` Physical location
+  * `model` Model number
+  * `os` Operating system
+  * `serial` Serial number
+  * `status` Working condition
+
+* **Success Response**
+
+  A successful update will return the new values of the item.
+
+    * **Code:** 200<br/>
+      **Body:** `{
+      "asset": 50848948,
+      "model": "HP 85555 G3",
+      "serial": "02544981SE6",
+      "os": "Windows 10 Professional",
+      "status": "working",
+      "location": "storage"
+  }`
+
+* **Error Response**
+
+  * **Code:** 404<br/>
+  **Body:** `{"error": "Asset tag not found"}`
+
+  OR
+
+  * **Code:** 422<br/>
+  **Body:** `{"error": "At least one parameter required to update"}`
