@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 //Set app settings
 app.use(express.json());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.text());
 app.disable('etag');
 global.__root = __dirname + '/';
