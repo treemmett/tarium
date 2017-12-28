@@ -5,6 +5,11 @@ routes.use('/inventory', require('./inventory'));
 
 //404 handling
 routes.all('*', (req, res, next) => {
+  //Check if response has already been sent
+  if(res.headersSent){
+    return next();
+  }
+
   res.status(404).json({error: 'API endpoint not found'});
   return next();
 });
