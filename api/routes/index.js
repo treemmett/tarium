@@ -2,6 +2,7 @@ const routes = require('express').Router();
 
 //Setup routes
 routes.use('/inventory', require('./inventory'));
+routes.use('/assign', require('./assign'));
 
 //404 handling
 routes.all('*', (req, res, next) => {
